@@ -1,0 +1,36 @@
+<div class="container" style="width: 40%">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <br>
+            <div class="row">
+                  <h2>Weather today</h2>
+            </div>
+            <div class="row">
+                  <label for="locations"> Location: &nbsp;</label>
+                  <select formControlName="locations" id="locations">
+                        <option *ngFor="let location of locations; let i = index" [value]="locations[i].id">
+                              {{locations[i].name}}
+                        </option>
+                  </select>
+                  &nbsp;<button (click)="getWeatherSummary(locationName.value)" class="btn btn-info"> Consultar </button>
+            </div>
+            <div class="row">
+                  <div class="center-block">
+                        <img src="/assets/icons/{{weather.currently.icon}}.png" width="150px" height="150px">
+                        <h5><span>{{weather.currently.temperature}}º {{weather.currently.summary}}</span></h5>
+                  </div>
+            </div>
+            <br>
+            <ul class="list-group">
+                  <li *ngFor="let element of daily" class="list-group-item">
+                        <span class="badge">{{element.day}} </span>
+                        <img src="/assets/icons/{{element.icon}}.png" width="50px" height="50px">
+                        <span class="badge">Min:</span>
+                        <span>{{element.temperatureMin}}º</span>
+                        <span class="badge">Max:</span>
+                        <span> {{element.temperatureMax}}º {{element.summary}}</span>
+                  </li>
+            </ul>
+
+      </form>
+</div>
