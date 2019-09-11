@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.7.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.1.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
 }
 
 group = 'co.com.assessment.demo'
@@ -9,43 +9,77 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenLocal()
+    mavenCentral()
 }
 
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "jacoco"
+
 ext {
-	set('springCloudVersion', "Greenwich.SR2")
+    set('springCloudVersion', "Greenwich.SR2")
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
 
-	compile('org.springframework.boot:spring-boot-starter-web-services')
-	compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.6'
-	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.1'
-	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.0'
-	compile group: 'com.github.jmnarloch', name: 'feign-encoding-spring-cloud-starter', version: '1.1.1'
-	compile group: 'org.springframework', name: 'spring-context', version: '5.1.9.RELEASE'
-	compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.10.0'
-	
-	runtime group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    compile('org.springframework.boot:spring-boot-starter-web-services')
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.6'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.1'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.1.0'
+    compile group: 'com.github.jmnarloch', name: 'feign-encoding-spring-cloud-starter', version: '1.1.1'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.1.9.RELEASE'
+    compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.10.0'
+    compile('org.jacoco:jacoco-maven-plugin:0.8.2')
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock'
 
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    runtime group: 'org.springframework.boot', name: 'spring-boot-devtools'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
+
+
+jacocoTestReport {
+    group = "Reporting"
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.enabled true
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['**/*Application.class',
+                              '**/config/*',
+                              '**/model/*',
+                              '**/enumeration/*',
+                              '**/dto/*',
+                              '**/util/*'
+                    ])
+        })
+    }
+}
+
+sourceSets.test.resources.srcDir 'src/test/resources'
+check.dependsOn jacocoTestReport

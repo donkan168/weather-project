@@ -35,13 +35,13 @@
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0s</div>
+<div class="counter">0.010s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox skipped" id="successRate">
-<div class="percent">-</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -78,37 +78,63 @@
 </tr>
 </thead>
 <tr>
-<td class="skipped">contextLoads</td>
-<td class="skipped">-</td>
-<td class="skipped">ignored</td>
+<td class="success">contextLoads</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>08:29:25.519 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class co.com.assessment.weather.demo.WeatherApplicationTests]
-08:29:25.527 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-08:29:25.532 [Test worker] INFO org.springframework.core.KotlinDetector - Kotlin reflection implementation not found at runtime, related features won't be available.
-08:29:25.539 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-08:29:25.557 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [co.com.assessment.weather.demo.WeatherApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-08:29:25.573 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.assessment.weather.demo.WeatherApplicationTests], using SpringBootContextLoader
-08:29:25.576 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: class path resource [co/com/assessment/weather/demo/WeatherApplicationTests-context.xml] does not exist
-08:29:25.576 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: class path resource [co/com/assessment/weather/demo/WeatherApplicationTestsContext.groovy] does not exist
-08:29:25.576 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-08:29:25.577 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: WeatherApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-08:29:25.624 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [co.com.assessment.weather.demo.WeatherApplicationTests]
-08:29:25.724 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/edgar.salamanca/Documents/pruebas/weather/build/classes/java/main/co/com/assessment/weather/demo/WeatherApplication.class]
-08:29:25.726 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration co.com.assessment.weather.demo.WeatherApplication for test class co.com.assessment.weather.demo.WeatherApplicationTests
-08:29:25.832 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [co.com.assessment.weather.demo.WeatherApplicationTests]: using defaults.
-08:29:25.833 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-08:29:25.848 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-08:29:25.849 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-08:29:25.849 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3fd0f0f5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4370d4dc, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@429be76a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4d49c702, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7526c106, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@30b52d4a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@2d883c81, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2efa8fe5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6d9745cd, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@74d1fa48, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1851ac67, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@62ae9d2f]
-08:29:25.852 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.assessment.weather.demo.WeatherApplicationTests]
-08:29:25.852 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.assessment.weather.demo.WeatherApplicationTests]
-08:29:25.853 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.assessment.weather.demo.WeatherApplicationTests]
-08:29:25.853 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.assessment.weather.demo.WeatherApplicationTests]
+<pre>00:40:50.235 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class co.com.assessment.weather.demo.WeatherApplicationTests]
+00:40:50.239 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+00:40:50.243 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+00:40:50.257 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [co.com.assessment.weather.demo.WeatherApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+00:40:50.274 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.assessment.weather.demo.WeatherApplicationTests], using SpringBootContextLoader
+00:40:50.275 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: class path resource [co/com/assessment/weather/demo/WeatherApplicationTests-context.xml] does not exist
+00:40:50.276 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: class path resource [co/com/assessment/weather/demo/WeatherApplicationTestsContext.groovy] does not exist
+00:40:50.276 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.com.assessment.weather.demo.WeatherApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+00:40:50.401 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [co.com.assessment.weather.demo.WeatherApplicationTests]: using defaults.
+00:40:50.401 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+00:40:50.418 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+00:40:50.418 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+00:40:50.419 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@57c36cea, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5ec8044c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4a5e86d7, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7e609a4e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@32081d54, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2c7c953d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@122ad65b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@68629cba, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1af2ce5f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@526f6541, org.springframework.cloud.contract.wiremock.WireMockTestExecutionListener@1633f959]
+00:40:50.422 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.assessment.weather.demo.WeatherApplicationTests]
+00:40:50.422 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.assessment.weather.demo.WeatherApplicationTests]
+00:40:50.423 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [co.com.assessment.weather.demo.WeatherApplicationTests]
+00:40:50.423 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [co.com.assessment.weather.demo.WeatherApplicationTests]
+00:40:50.428 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@7a4dfa1c testClass = WeatherApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4168ac63 testClass = WeatherApplicationTests, locations = '{}', classes = '{class co.com.assessment.weather.demo.WeatherApplication, class co.com.assessment.weather.demo.WeatherApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3768e3cc, [ImportsContextCustomizer@3ca27b49 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6ee6024d, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@47388deb, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@58aee03a], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+00:40:50.466 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+2019-09-11 00:40:51.388  INFO 27219 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$20680ffd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.7.RELEASE)
+
+2019-09-11 00:40:51.555  INFO 27219 --- [    Test worker] c.c.a.w.demo.WeatherApplicationTests     : The following profiles are active: test
+2019-09-11 00:40:53.875  INFO 27219 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f6e5042a-74f6-3238-8f15-60e3f420429b
+2019-09-11 00:40:54.320  INFO 27219 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a8e5d1ff] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-11 00:40:54.390  WARN 27219 --- [    Test worker] o.s.xml.DocumentBuilderFactoryUtils      : http://javax.xml.XMLConstants/property/accessExternalDTD property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+2019-09-11 00:40:54.391  WARN 27219 --- [    Test worker] o.s.xml.DocumentBuilderFactoryUtils      : http://javax.xml.XMLConstants/property/accessExternalSchema property not supported by org.apache.xerces.jaxp.DocumentBuilderFactoryImpl
+2019-09-11 00:40:54.428  INFO 27219 --- [    Test worker] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-09-11 00:40:54.482  INFO 27219 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$20680ffd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-11 00:40:55.388  WARN 27219 --- [    Test worker] o.s.c.n.a.ArchaiusAutoConfiguration      : No spring.application.name found, defaulting to 'application'
+2019-09-11 00:40:55.399  WARN 27219 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-09-11 00:40:55.399  INFO 27219 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-09-11 00:40:55.410  WARN 27219 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-09-11 00:40:55.410  INFO 27219 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-09-11 00:40:56.022  INFO 27219 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-11 00:40:57.344  INFO 27219 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-09-11 00:40:57.345  INFO 27219 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-09-11 00:40:57.368  INFO 27219 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-09-11 00:40:57.418  INFO 27219 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 73 ms
+2019-09-11 00:40:57.642  WARN 27219 --- [    Test worker] o.s.c.n.core.CoreAutoConfiguration       : This module is deprecated. It will be removed in the next major release. Please use spring-cloud-netflix-hystrix instead.
+2019-09-11 00:40:57.748  INFO 27219 --- [    Test worker] c.c.a.w.demo.WeatherApplicationTests     : Started WeatherApplicationTests in 7.275 seconds (JVM running for 11.104)
 </pre>
 </span>
 </div>
@@ -120,7 +146,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6</a> at 8/09/2019 08:29:25 AM</p>
+<a href="http://www.gradle.org">Gradle 5.6</a> at 11/09/2019 12:41:01 AM</p>
 </div>
 </div>
 </body>

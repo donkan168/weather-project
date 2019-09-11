@@ -3,8 +3,6 @@ package co.com.assessment.weather.demo.config;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import java.io.IOException;
 import java.io.InputStream;
 import lombok.extern.slf4j.Slf4j;
@@ -23,10 +21,10 @@ public class FireBaseConfiguration {
   private String urlBaseFirebase;
 
   @Bean
-  public void loadFireBaseConfiguration(){
+  public void loadFireBaseConfiguration() {
     try {
 
-     FirebaseOptions options = new FirebaseOptions.Builder()
+      FirebaseOptions options = new FirebaseOptions.Builder()
           .setCredentials(GoogleCredentials.fromStream(securityFirebase))
           .setDatabaseUrl(urlBaseFirebase)
           .build();

@@ -14,25 +14,15 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Weather extends RequestBody {
+public class Weather {
 
   @JsonProperty("timezone")
-  public String timezone;
+  private String timezone;
   @JsonProperty("currently")
-  public Currently currently;
+  private Currently currently;
   @JsonProperty("daily")
-  public Daily daily;
+  private Daily daily;
   @JsonProperty("offset")
-  public Integer offset;
+  private Integer offset;
 
-  @Nullable
-  @Override
-  public MediaType contentType() {
-    return null;
-  }
-
-  @Override
-  public void writeTo(@NotNull BufferedSink bufferedSink) throws IOException {
-
-  }
 }

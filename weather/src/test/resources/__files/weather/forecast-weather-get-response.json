@@ -1,0 +1,81 @@
+{
+  "duplex": false,
+  "oneShot": false,
+  "timezone": "Europe/Madrid",
+  "currently": {
+    "summary": "Partly Cloudy",
+    "icon": "partly-cloudy-night",
+    "temperature": 78
+  },
+  "daily": {
+    "summary": "Rain on Friday through Sunday, with high temperatures falling to 73°F tomorrow.",
+    "icon": "rain",
+    "data": [
+      {
+        "day": "Sun",
+        "time": 1567980000,
+        "summary": "Partly cloudy throughout the day.",
+        "icon": "clear-day",
+        "temperatureMin": 59.56,
+        "temperatureMax": 84
+      },
+      {
+        "day": "Mon",
+        "time": 1568066400,
+        "summary": "Partly cloudy throughout the day.",
+        "icon": "clear-day",
+        "temperatureMin": 54.11,
+        "temperatureMax": 73
+      },
+      {
+        "day": "Tue",
+        "time": 1568152800,
+        "summary": "Clear throughout the day.",
+        "icon": "clear-day",
+        "temperatureMin": 53.94,
+        "temperatureMax": 79
+      },
+      {
+        "day": "Wed",
+        "time": 1568239200,
+        "summary": "Clear throughout the day.",
+        "icon": "clear-day",
+        "temperatureMin": 56.34,
+        "temperatureMax": 84
+      },
+      {
+        "day": "Thu",
+        "time": 1568325600,
+        "summary": "Mostly cloudy throughout the day.",
+        "icon": "rain",
+        "temperatureMin": 60.75,
+        "temperatureMax": 75
+      },
+      {
+        "day": "Fri",
+        "time": 1568412000,
+        "summary": "Rain in the evening and overnight.",
+        "icon": "rain",
+        "temperatureMin": 59.87,
+        "temperatureMax": 74
+      },
+      {
+        "day": "Sat",
+        "time": 1568498400,
+        "summary": "Possible light rain in the morning.",
+        "icon": "rain",
+        "temperatureMin": 59.99,
+        "temperatureMax": 75
+      },
+      {
+        "day": "Sun",
+        "time": 1568584800,
+        "summary": "Clear throughout the day.",
+        "icon": "clear-day",
+        "temperatureMin": 60.81,
+        "temperatureMax": 79
+      }
+    ]
+  },
+  "offset": 2
+}

@@ -13,6 +13,6 @@ public abstract class AbstractCommonClientDelegate {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return null;
+    return new Weather();
   }
 }

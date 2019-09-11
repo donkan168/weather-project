@@ -5,9 +5,6 @@ import co.com.assessment.weather.demo.dto.WeatherRequestDTO;
 import co.com.assessment.weather.demo.model.Weather;
 import co.com.assessment.weather.demo.util.MD5;
 import co.com.assessment.weather.demo.util.RestResourceConstants;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
@@ -24,8 +21,14 @@ import org.springframework.stereotype.Service;
 public class FirebaseClientDelegateImpl extends AbstractCommonClientDelegate implements
     FirebaseClientDelegate {
 
+  private final OkHttpClient httpsConfiguration;
+
   @Value("${clent.firebase.backup.url}")
   private String urlBackup;
+
+  public FirebaseClientDelegateImpl(OkHttpClient httpsConfiguration) {
+    this.httpsConfiguration = httpsConfiguration;
+  }
 
   public Weather getInfoFromBackupFirebase(WeatherRequestDTO requestDTO) {
     Request request = new Request.Builder()
@@ -33,7 +36,7 @@ public class FirebaseClientDelegateImpl extends AbstractCommonClientDelegate imp
         .get().build();
 
     try {
-      return parseResponse(new OkHttpClient().newCall(request).execute());
+      return parseResponse(httpsConfiguration.newCall(request).execute());
     } catch (IOException e) {
       log.error("Error trying to retrieve information in the backup source", e);
     }
@@ -52,7 +55,7 @@ public class FirebaseClientDelegateImpl extends AbstractCommonClientDelegate imp
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference();
 
-    DatabaseReference weatherLocation = ref.child("test");
+    DatabaseReference weatherLocation = ref.child(RestResourceConstants.WEATER);
 
     Map<String, Weather> location = new HashMap<>();
     location.put(MD5.getMD5(mainRequest.getLatitude().concat(mainRequest.getLongitude())), weather);

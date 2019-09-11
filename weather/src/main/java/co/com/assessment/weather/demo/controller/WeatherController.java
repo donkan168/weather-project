@@ -1,9 +1,10 @@
 package co.com.assessment.weather.demo.controller;
 
-import co.com.assessment.weather.demo.enumertation.LocationEnum;
+import co.com.assessment.weather.demo.enumeration.LocationEnum;
 import co.com.assessment.weather.demo.model.Weather;
 import co.com.assessment.weather.demo.service.api.WeatherService;
 import co.com.assessment.weather.demo.util.RestResourceConstants;
+import javax.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,7 @@ public class WeatherController {
   @RequestMapping(value = RestResourceConstants.SEPARATOR
       + RestResourceConstants.LOCATION, method = {RequestMethod.GET,
       RequestMethod.OPTIONS}, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-  public ResponseEntity<Weather> getWeather(@PathVariable LocationEnum location) {
+  public ResponseEntity<Weather> getWeather(@NotNull @PathVariable LocationEnum location) {
 
     Weather response = weatherService.getWeather(location);
     return ResponseEntity.status(HttpStatus.OK).body(response);

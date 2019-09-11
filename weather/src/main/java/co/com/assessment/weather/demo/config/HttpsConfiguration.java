@@ -1,7 +1,6 @@
 
 package co.com.assessment.weather.demo.config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -19,18 +18,11 @@ import okhttp3.CipherSuite;
 import okhttp3.ConnectionSpec;
 import okhttp3.OkHttpClient;
 import okhttp3.TlsVersion;
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @Configuration
@@ -47,7 +39,7 @@ public class HttpsConfiguration {
 
     InputStream inputFile = file.getInputStream();
 
-    if (areKeyStoreParametersInValid(inputFile, credential)){
+    if (areKeyStoreParametersInValid(inputFile, credential)) {
       throw new IllegalArgumentException("Missing or wrong parameter in SSL configuration");
     }
     OkHttpClient.Builder clientHttp = null;

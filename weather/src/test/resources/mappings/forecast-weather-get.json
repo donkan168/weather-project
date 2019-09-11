@@ -1,0 +1,13 @@
+{
+  "request": {
+    "url": "/forecast/e6bde58df44d5c75a513b6c48613ae53/40.416775,-3.703790?exclude=minutely,hourly,alerts,flags",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "/weather/forecast-weather-get-response.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
